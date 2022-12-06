@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        padding: 100px 100px;
+        background-image: url("magnifier-g9762e4f68_1920.jpg");
+        background-attachment: fixed;
+        background-size: 100% 100%;
+        /* color: aqua; */
+      }
+      h1 {
+        text-align: center;
+        background-color: rgba(0, 0, 0, 0.607);
+        color: aliceblue;
+        margin: 0px;
+        padding: 10px;
+      }
+      #textbox {
+        width: 99.4%;
+        border-color: rgb(255, 255, 255);
+        background: transparent;
+        color: rgb(255, 255, 255);
+        /* color: rgb(255, 251, 15); */
+
+        height: 410px;
+        font-size: 20px;
+      }
+      P {
+        text-align: center;
+        font-size: 38px;
+        font-weight: bold;
+        margin: 0px;
+        padding: 10px;
+        color: black;
+      }
+      #word,
+      #char {
+        color: rgb(250, 68, 86);
+      }
+    </style>
+  </head>
+  <body>
+    <h1>: Word and character counter :</h1>
+    <textarea id="textbox" cols="30" rows="10"></textarea>
+    <p>
+      <span id="word">0</span> words and <span id="char">0</span> characters
+    </p>
+    <script>
+      let textbox = document.getElementById("textbox");
+      let char = document.getElementById("char");
+      let word = document.getElementById("word");
+      textbox.addEventListener("input", function () {
+        var text = this.value;
+        // console.log(text);
+        char.innerHTML = text.length;
+        // trim() is used to remove extra spaces in starting and last
+        text = text.trim();
+        let no = text.split(" ");
+        let cleanList = no.filter(function (elm) {
+          return elm != "";
+        });
+        console.log(cleanList);
+        word.innerHTML = cleanList.length;
+      });
+    </script>
+  </body>
+</html>
